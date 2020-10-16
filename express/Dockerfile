@@ -19,7 +19,7 @@ RUN ln -s /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2
 
 WORKDIR /usr/src/express
 
-COPY express /usr/src/express
+COPY app /usr/src/express
 
 RUN npm ci
 
