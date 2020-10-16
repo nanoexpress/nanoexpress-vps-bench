@@ -1,0 +1,16 @@
+{
+  "name": "@dalisoft/express-backend",
+  "version": "0.0.0",
+  "description": "",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "dalisoft",
+  "license": "MIT",
+  "dependencies": {
+    "express": "latest"
+  }
+}

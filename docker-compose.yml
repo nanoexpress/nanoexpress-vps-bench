@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  nanoexpress:
+    build:
+      context: ./nanoexpress
+    container_name: docker-nanoexpress-demo
+    restart: always
+    ports:
+      - '4100:4100'
+    environment:
+      - 'PORT=4100'
+      - 'NODE_ENV=development'
+    networks:
+      - demo-connect
+    volumes:
+      - ./nanoexpress/app:/usr/src/nanoexpress
+      - /usr/src/nanoexpress/node_modules # Remove this if you have pure JS dependencies
+  express:
+    build:
+      context: ./express
+    container_name: docker-express-demo
+    restart: always
+    ports:
+      - '4200:4200'
+    environment:
+      - 'PORT=4200'
+      - 'NODE_ENV=development'
+    networks:
+      - demo-connect
+    volumes:
+      - ./express/app:/usr/src/express
+      - /usr/src/express/node_modules # Remove this if you have pure JS dependencies
+
+networks:
+  demo-connect:
+    driver: bridge
