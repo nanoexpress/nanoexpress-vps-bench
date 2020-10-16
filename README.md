@@ -64,6 +64,32 @@ Transfer/sec:      6.85MB
 root@testvps:~#
 ```
 
+## Machine
+
+Command got via `neofetch`
+
+```bash
+❯ neofetch
+       _,met$$$$$gg.          root@testvps
+    ,g$$$$$$$$$$$$$$$P.       -------
+  ,g$$P"     """Y$$.".        OS: Debian GNU/Linux 10 (buster) x86_64
+ ,$$P'              `$$$.     Host: KVM RHEL 7.6.0 PC (i440FX + PIIX, 1996)
+',$$P       ,ggs.     `$$b:   Kernel: 4.19.0-9-amd64
+`d$$'     ,$P"'   .    $$$    Uptime: -
+ $$P      d$'     ,    $$P    Packages: 556 (dpkg)
+ $$:      $$.   -    ,d$$'    Shell: fish 3.0.2
+ $$;      Y$b._   _,d$P'      Terminal: /dev/pts/0
+ Y$$.    `.`"Y$$$$P"'         CPU: Intel Xeon Gold 5115 (6) @ 2.394GHz
+ `$$b      "-.__              GPU: Cirrus Logic GD 5446
+  `Y$$                        Memory: 1288MiB / 5962MiB
+   `Y$$.
+     `$$b.
+       `Y$$b.
+          `"Y$b._
+              `"""
+
+```
+
 ## License
 
 MIT
