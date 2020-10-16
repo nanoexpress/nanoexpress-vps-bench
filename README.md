@@ -7,11 +7,15 @@ Compare repo between expressjs and nanoexpress (Pro) without any modification (o
 1. Install Debian or any Linux OS
 2. Install **wrk**
 3. Install `docker`, `docker-compose` and etc, configure it
-4. Test via `wrk`
+4. Start test containers via `docker-compose up -d` and Test via `wrk`
 
 ## Results
 
 Almost 8-x faster than expressjs, great results
+
+### Round 1-3
+
+Known as warmup
 
 ```bash
 root@testvps:~# wrk http://test-api.dalisoft.uz:4100
@@ -33,6 +37,11 @@ Running 10s test @ http://test-api.dalisoft.uz:4200
   Non-2xx or 3xx responses: 48019
 Requests/sec:   4799.47
 Transfer/sec:      6.51MB
+```
+
+### Round 4-6
+
+```bash
 root@testvps:~# wrk http://test-api.dalisoft.uz:4100/time
 Running 10s test @ http://test-api.dalisoft.uz:4100/time
   2 threads and 10 connections
