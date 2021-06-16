@@ -1,5 +1,5 @@
 {
-  "name": "@dalisoft/express-backend",
+  "name": "uWS-backend",
   "version": "0.0.0",
   "description": "",
   "type": "commonjs",
@@ -11,6 +11,6 @@
   "author": "dalisoft",
   "license": "MIT",
   "dependencies": {
-    "express": "latest"
+    "uWebSockets.js": "https://github.com/uNetworking/uWebSockets.js/archive/v19.2.0.tar.gz"
   }
 }

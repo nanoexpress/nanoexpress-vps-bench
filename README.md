@@ -11,57 +11,42 @@ Compare repo between expressjs and nanoexpress (Pro) without any modification (o
 
 ## Results
 
-Almost 8-x faster than expressjs, great results
-
-### Round 1-3
-
-Known as warmup
+Almost 3-x faster than expressjs
 
 ```bash
-root@testvps:~# wrk http://test-api.dalisoft.uz:4100
-Running 10s test @ http://test-api.dalisoft.uz:4100
-  2 threads and 10 connections
+~
+❯ wrk -c8 -t8 -d60  http://localhost:4200/time
+Running 1m test @ http://localhost:4200/time
+  8 threads and 8 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   309.96us  125.64us   7.36ms   95.52%
-    Req/Sec    16.25k   454.79    16.70k    91.58%
-  326505 requests in 10.10s, 96.22MB read
-Requests/sec:  32326.53
-Transfer/sec:      9.53MB
-root@testvps:~# wrk http://test-api.dalisoft.uz:4200
-Running 10s test @ http://test-api.dalisoft.uz:4200
-  2 threads and 10 connections
+    Latency   188.99us  218.96us  17.18ms   97.72%
+    Req/Sec     5.88k   472.61     8.56k    82.54%
+  2808875 requests in 1.00m, 736.66MB read
+Requests/sec:  46736.89
+Transfer/sec:     12.26MB
+~ took 1m
+❯ wrk -c8 -t8 -d60  http://localhost:4100/time
+Running 1m test @ http://localhost:4100/time
+  8 threads and 8 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     2.26ms    1.60ms  22.22ms   92.66%
-    Req/Sec     2.41k   534.43     3.30k    74.00%
-  48019 requests in 10.01s, 65.12MB read
-  Non-2xx or 3xx responses: 48019
-Requests/sec:   4799.47
-Transfer/sec:      6.51MB
-```
+    Latency    71.53us   48.08us   7.54ms   98.93%
+    Req/Sec    14.10k   320.84    14.62k    84.90%
+  6745752 requests in 1.00m, 0.90GB read
+Requests/sec: 112243.11
+Transfer/sec:     15.31MB
+~ took 1m
+❯ wrk -c8 -t8 -d60  http://localhost:4300/time
+Running 1m test @ http://localhost:4300/time
+  8 threads and 8 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    62.87us   37.68us   8.32ms   98.91%
+    Req/Sec    15.88k   274.27    16.46k    84.59%
+  7597597 requests in 1.00m, 695.58MB read
+Requests/sec: 126417.81
+Transfer/sec:     11.57MB
+~ took 1m
+❯
 
-### Round 4-6
-
-```bash
-root@testvps:~# wrk http://test-api.dalisoft.uz:4100/time
-Running 10s test @ http://test-api.dalisoft.uz:4100/time
-  2 threads and 10 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   414.08us  716.55us  22.09ms   98.68%
-    Req/Sec    13.98k     1.82k   16.87k    77.23%
-  280967 requests in 10.10s, 85.74MB read
-Requests/sec:  27817.43
-Transfer/sec:      8.49MB
-root@testvps:~# wrk http://test-api.dalisoft.uz:4200/time
-Running 10s test @ http://test-api.dalisoft.uz:4200/time
-  2 threads and 10 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     2.05ms    1.00ms  19.32ms   91.46%
-    Req/Sec     2.54k   356.90     3.22k    74.00%
-  50565 requests in 10.01s, 68.57MB read
-  Non-2xx or 3xx responses: 50565
-Requests/sec:   5049.91
-Transfer/sec:      6.85MB
-root@testvps:~#
 ```
 
 ## Machine
@@ -70,24 +55,26 @@ Command got via `neofetch`
 
 ```bash
 ❯ neofetch
-       _,met$$$$$gg.          root@testvps
-    ,g$$$$$$$$$$$$$$$P.       -------
-  ,g$$P"     """Y$$.".        OS: Debian GNU/Linux 10 (buster) x86_64
- ,$$P'              `$$$.     Host: KVM RHEL 7.6.0 PC (i440FX + PIIX, 1996)
-',$$P       ,ggs.     `$$b:   Kernel: 4.19.0-9-amd64
-`d$$'     ,$P"'   .    $$$    Uptime: -
- $$P      d$'     ,    $$P    Packages: 556 (dpkg)
- $$:      $$.   -    ,d$$'    Shell: fish 3.0.2
- $$;      Y$b._   _,d$P'      Terminal: /dev/pts/0
- Y$$.    `.`"Y$$$$P"'         CPU: Intel Xeon Gold 5115 (6) @ 2.394GHz
- `$$b      "-.__              GPU: Cirrus Logic GD 5446
-  `Y$$                        Memory: 1288MiB / 5962MiB
-   `Y$$.
-     `$$b.
-       `Y$$b.
-          `"Y$b._
-              `"""
-
+            .-/+oossssoo+/-.               dalisoft@dalisoft-ubuntu
+        `:+ssssssssssssssssss+:`           ------------------------
+      -+ssssssssssssssssssyyssss+-         OS: Ubuntu 20.04.2 LTS x86_64
+    .ossssssssssssssssssdMMMNysssso.       Host: Z390 AORUS PRO WIFI
+   /ssssssssssshdmmNNmmyNMMMMhssssss/      Kernel: 5.8.0-55-generic
+  +ssssssssshmydMMMMMMMNddddyssssssss+     Uptime: 1 hour, 11 mins
+ /sssssssshNMMMyhhyyyyhmNMMMNhssssssss/    Packages: 2437 (dpkg)
+.ssssssssdMMMNhsssssssssshNMMMdssssssss.   Shell: fish 3.1.0
++sssshhhyNMMNyssssssssssssyNMMMysssssss+   Resolution: 3840x2160
+ossyNMMMNyMMhsssssssssssssshmmmhssssssso   DE: GNOME
+ossyNMMMNyMMhsssssssssssssshmmmhssssssso   WM: Mutter
++sssshhhyNMMNyssssssssssssyNMMMysssssss+   WM Theme: Adwaita
+.ssssssssdMMMNhsssssssssshNMMMdssssssss.   Theme: WhiteSur-light [GTK2/3]
+ /sssssssshNMMMyhhyyyyhdNMMMNhssssssss/    Icons: WhiteSur [GTK2/3]
+  +sssssssssdmydMMMMMMMMddddyssssssss+     Terminal: gnome-terminal
+   /ssssssssssshdmNNNNmyNMMMMhssssss/      CPU: Intel i9-9900K (16) @ 5.000GHz
+    .ossssssssssssssssssdMMMNysssso.       GPU: NVIDIA GeForce RTX 2080 Ti Rev.
+      -+sssssssssssssssssyyyssss+-         Memory: 4313MiB / 64131MiB
+        `:+ssssssssssssssssss+:`
+            .-/+oossssoo+/-.
 ```
 
 ## License

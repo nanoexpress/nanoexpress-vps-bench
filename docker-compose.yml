@@ -1,16 +1,18 @@
-version: '3'
+version: "3"
 
 services:
   nanoexpress:
     build:
       context: ./nanoexpress
+    security_opt:
+      - seccomp:unconfined
     container_name: docker-nanoexpress-demo
     restart: always
     ports:
-      - '4100:4100'
+      - "4100:4100"
     environment:
-      - 'PORT=4100'
-      - 'NODE_ENV=development'
+      - "PORT=4100"
+      - "NODE_ENV=development"
     networks:
       - demo-connect
     volumes:
@@ -19,18 +21,37 @@ services:
   express:
     build:
       context: ./express
+    security_opt:
+      - seccomp:unconfined
     container_name: docker-express-demo
     restart: always
     ports:
-      - '4200:4200'
+      - "4200:4200"
     environment:
-      - 'PORT=4200'
-      - 'NODE_ENV=development'
+      - "PORT=4200"
+      - "NODE_ENV=development"
     networks:
       - demo-connect
     volumes:
       - ./express/app:/usr/src/express
       - /usr/src/express/node_modules # Remove this if you have pure JS dependencies
+  uws:
+    build:
+      context: ./uws
+    security_opt:
+      - seccomp:unconfined
+    container_name: docker-uws-demo
+    restart: always
+    ports:
+      - "4300:4300"
+    environment:
+      - "PORT=4300"
+      - "NODE_ENV=development"
+    networks:
+      - demo-connect
+    volumes:
+      - ./uws/app:/usr/src/uws
+      - /usr/src/uws/node_modules # Remove this if you have pure JS dependencies
 
 networks:
   demo-connect:

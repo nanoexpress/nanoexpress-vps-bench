@@ -11,6 +11,6 @@
   "author": "dalisoft",
   "license": "MIT",
   "dependencies": {
-    "nanoexpress-pro": "^2.2.4"
+    "nanoexpress": "^8.0.0"
   }
 }

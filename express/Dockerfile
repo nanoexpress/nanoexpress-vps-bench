@@ -14,15 +14,14 @@
 
 FROM mhart/alpine-node:12
 
-RUN apk update && apk add --no-cache git
 RUN ln -s /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2
 
 WORKDIR /usr/src/express
 
 COPY app /usr/src/express
 
-RUN npm ci
+RUN yarn --immutable
 
 ENV NODE_ENV=development
 
-CMD ["npm", "run", "start"]
+CMD ["node", "server.js"]
