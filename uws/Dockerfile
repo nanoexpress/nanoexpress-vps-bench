@@ -12,9 +12,7 @@
 # and required tools such as git, npm
 #
 
-FROM mhart/alpine-node:12
-
-RUN ln -s /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2
+FROM node:16
 
 WORKDIR /usr/src/nanoexpress
 
