@@ -77,6 +77,21 @@ ossyNMMMNyMMhsssssssssssssshmmmhssssssso   WM: Mutter
             .-/+oossssoo+/-.
 ```
 
+## Build performance
+
+| Machine / Build | INIT | FCB | B   | AVG  | CPU            | RAM            | Disk (R/W)           | Environment    | Is VM?        |
+| --------------- | ---- | --- | --- | ---- | -------------- | -------------- | -------------------- | -------------- | ------------- |
+| Macbook M1      | 40   | 12  | 0.4 | 17,3 | Apple M1       | LPDDR4 3200Mhz | ~3000 MB; VirtioFS   | Docker Engine  | Ubuntu Server |
+| Macbook M1      | 48   | 14  | 3   | 21,7 | Apple M1       | LPDDR4 3200Mhz | ~3000 MB; VirtioFS   | Docker Desktop |               |
+| VPS 5$          | 51   | 14  | 1   | 22,0 | Xeon SKL 1x2.2 | Server         | ~200 MB; KVM         | Docker Engine  |               |
+| iMac 5K         | 76   | 18  | 6   | 33,3 | Core i7-4790K  | DDR3 1600Mhz   | ~600 MB; Hyperkit    | Docker Desktop |               |
+| Custom PC       | 79   | 14  | 0.4 | 31,0 | Core i9-9900K  | DDR4 3466Mhz   | ~3000 MB; containerd | Docker Engine  |               |
+| Raspberry Pi 4  | 93   | 15  | 2   | 36,7 | Broadcom       | LPDDR4 2133Mhz | ~200 MB; containerd  | Docker Engine  |               |
+
+**INIT** - Initial first build without any cache or buildkit optimizations
+**FCB** - `--build --force-recreate` with Docker internal optimizations
+**B** - `--build` only with Docker internal optimizations
+
 ## License
 
 MIT
