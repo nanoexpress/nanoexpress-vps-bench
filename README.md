@@ -73,9 +73,6 @@ Transfer/sec:     11.57MB
 | iMac 5K         | 76   | 18  | 6   | 33.3 | Core i7-4790K  | DDR3 1600Mhz   | ~600 MB    | Hyperkit | macOS 11.5    | Docker Desktop |
 | RPI 4 OC1850    | 83   | 15  | 2   | 33.3 | Broadcom       | LPDDR4 2133Mhz | ~200 MB    | Native   | Debian 11.4+  | Docker Engine  |
 | RPI 4           | 93   | 15  | 2   | 36.7 | Broadcom       | LPDDR4 2133Mhz | ~200 MB    | Native   | Debian 11.4+  | Docker Engine  |
-| 0               | 0    | 0   | 0   | 0    |                |                |            |          |               |                |
-| 0               | 0    | 0   | 0   | 0    |                |                |            |          |               |                |
-| 0               | 0    | 0   | 0   | 0    |                |                |            |          |               |                |
 
 **INIT** - Initial first build without any cache or buildkit optimizations
 
