@@ -54,7 +54,7 @@ Transfer/sec:     11.57MB
 - Macbook M1 16GB/512G 8-Core
 - iMac 5K Late-2014 i7 32GB/256G
 - Custom-build High-end PC with i9-9900K and all other top components from 2019 year
-- Raspberry Pi 4 4G and 256G SSD
+- Raspberry Pi 4 4GB/256G SSD
 
 ## Build performance
 
