@@ -11,6 +11,6 @@
   "author": "dalisoft",
   "license": "MIT",
   "dependencies": {
-    "uWebSockets.js": "https://github.com/uNetworking/uWebSockets.js/archive/v19.2.0.tar.gz"
+    "uWebSockets.js": "https://github.com/uNetworking/uWebSockets.js/archive/v20.15.tar.gz"
   }
 }
