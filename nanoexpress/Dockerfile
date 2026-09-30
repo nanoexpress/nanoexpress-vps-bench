@@ -12,7 +12,7 @@
 # and required tools such as git, npm
 #
 
-FROM node:16
+FROM node:16.20.2-bullseye
 
 WORKDIR /usr/src/nanoexpress
 

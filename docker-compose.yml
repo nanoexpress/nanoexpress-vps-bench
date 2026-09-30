@@ -4,8 +4,6 @@ services:
   nanoexpress:
     build:
       context: ./nanoexpress
-    security_opt:
-      - seccomp:unconfined
     container_name: docker-nanoexpress-demo
     restart: always
     ports:
@@ -21,8 +19,6 @@ services:
   express:
     build:
       context: ./express
-    security_opt:
-      - seccomp:unconfined
     container_name: docker-express-demo
     restart: always
     ports:
@@ -38,8 +34,6 @@ services:
   uws:
     build:
       context: ./uws
-    security_opt:
-      - seccomp:unconfined
     container_name: docker-uws-demo
     restart: always
     ports:
