@@ -1,0 +1,6 @@
+# typos spell-check config
+# https://github.com/crate-ci/typos
+
+[default.extend-words]
+# `wrk` is the HTTP benchmarking tool, not a typo of `work`
+wrk = "wrk"
